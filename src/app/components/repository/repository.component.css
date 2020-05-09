@@ -1,0 +1,29 @@
+*{
+    text-align: center;
+}
+div{
+    margin-top: 5%;
+}
+label{
+    margin-top: 5%;
+    font-size: larger;
+}
+.simpleBtn{
+    margin: 3%;
+}
+.middle{
+    margin-left: 30%;
+    width: 40%;
+}
+.dropdown-divider{
+    margin-bottom: 3%;
+}
+.footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0%;
+    background-color: white;
+    padding: 2%;
+    border-color: transparent;
+    height: 11%;
+}

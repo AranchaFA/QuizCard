@@ -1,0 +1,8 @@
+<div>
+    <small><label for="name">Name: </label></small>
+    <input id="name" [(ngModel)]="newDeck.name" type="text" placeholder="Deck's name required !">
+    <small><label for="native">Native language: </label>
+    <app-language-input id="native" [chosenValue]="'Spanish'" (valueEmitter)="newDeck.native_language=$event"></app-language-input><br>
+    <label for="target">Target language: </label>
+    <app-language-input id="target" [chosenValue]="'English'" (valueEmitter)="newDeck.target_language=$event"></app-language-input></small>
+</div>

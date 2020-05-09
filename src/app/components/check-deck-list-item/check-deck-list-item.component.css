@@ -1,0 +1,26 @@
+li{
+    margin-left: 15%;
+    margin-right: 15%;
+    height: fit-content;
+}
+li:hover{
+    background-color: #e6f5e6;
+    font-size: larger;
+}
+.selected{
+    background-color: #e6f5e6;
+}
+input{
+    border-left: transparent;
+    border-right: transparent;
+    border-top: transparent;
+    border-bottom: #5cb85c;
+    border-style: solid;
+    border-width: thin;
+    color: gray;
+    width: 40%;
+    background-color: transparent;
+}
+.badge{
+    font-weight: lighter;
+}

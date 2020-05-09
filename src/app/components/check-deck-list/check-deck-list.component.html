@@ -1,0 +1,5 @@
+<ul class="list-group list-group-flush">
+    <app-check-deck-list-item [unselect]="unselectItems" [isDisabled]="itemsDisabled" *ngFor="let deck of userDecksObs | async" [deck]="deck"
+        (deckSelectionEmiter)="emitDeckSelection($event)" (showCardsEmiter)="emitDeckShowCards($event)"
+        (newNameEmitter)="emitNewDeckName($event)"></app-check-deck-list-item>
+</ul>

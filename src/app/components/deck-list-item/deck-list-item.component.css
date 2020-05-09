@@ -1,0 +1,8 @@
+li{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+li:hover{
+    background-color: #e6f5e6;
+    font-size: larger;
+}

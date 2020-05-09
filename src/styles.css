@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* BootStrap import */
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css';
+
+/* Google fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lato&family=Open+Sans&display=swap');
+/* font-family: 'Indie Flower', cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+/* font-family: 'Neucha', cursive; */
+
+*{
+    font-family: 'Neucha', cursive;
+}

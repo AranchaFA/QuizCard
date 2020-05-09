@@ -1,0 +1,16 @@
+li{
+    padding: 2%;
+    margin-left: 13%;
+ }
+ li.success:hover{
+     background-color: #e6f5e6;
+     font-size: larger;
+ }
+ li.danger:hover{
+     background-color: #fae6e6;
+     font-size: larger;
+ }
+ .flex{
+     display: flex;
+     justify-content: space-between;
+ }

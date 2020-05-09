@@ -1,0 +1,12 @@
+<!-- Tittle -->
+<div class="tittle">
+    <h3>My statistics</h3>
+    <h6 *ngIf="selectedDeckID">( {{(selectedDeckObs | async)?.name}} )</h6>
+    <div class="dropdown-divider" style="width: 70%; margin-left: 15%;"></div>
+</div>
+
+<!-- User rankings -->
+<app-ranking-user *ngIf="selectedDeckID==null" (deckEmitter)="navigateDeck($event)"></app-ranking-user>
+
+<!-- Selected deck ranking -->
+<app-ranking-group *ngIf="selectedDeckID!=null"></app-ranking-group>

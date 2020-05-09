@@ -1,0 +1,5 @@
+.progress{
+    margin-top: 0.5%;
+    margin-left: 20%;
+}
+/* I can't center progress bars!! -> margin-left: (col-12 - col-6)/2 (=50%/2)   :( */

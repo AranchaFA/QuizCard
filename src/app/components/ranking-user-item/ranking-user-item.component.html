@@ -1,0 +1,17 @@
+<li type="none" class="col-8" [class.success]='successPercentage>=50' [class.danger]='successPercentage<50'
+    (mouseenter)="isFocused=true" (mouseleave)="isFocused=false" (click)="emitDeck()">
+    <span class="align-text-center">{{deck.name}}</span>
+    <!-- Ranking bar -->
+    <div class="progress">
+        <span class="progress-bar" [class.bg-success]='successPercentage>=50' [class.bg-danger]='successPercentage<50'
+            role="progressbar" [ngStyle]="{ 'width': successPercentage + '%' }" aria-valuenow="successPercentage" aria-valuemin="0"
+            aria-valuemax="100"></span>
+    </div>
+    <!-- User statistics details -->
+    <div *ngIf="isFocused" class="flex">
+        <span>Total: {{(userStatisticsObs | async)?.answered}}</span>
+        <span>Success: {{(userStatisticsObs | async)?.success}}</span>
+        <span [class.text-success]='successPercentage>=50'
+            [class.text-danger]='successPercentage<50'>{{successPercentage}}%</span>
+    </div>
+</li>

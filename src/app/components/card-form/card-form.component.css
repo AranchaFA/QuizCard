@@ -1,0 +1,29 @@
+div{
+    margin-left: 25%;
+    margin-right: 25%;
+    position: fixed;
+    bottom: 11%;
+    background-color: white;
+    width: 50%;
+    border-color: #5cb85c;
+    border-style: solid;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+label{
+    margin-top: 3%;
+    font-size: larger;
+}
+input{
+    border-left: transparent;
+    border-right: transparent;
+    border-top: transparent;
+    border-bottom: #5cb85c;
+    border-style: solid;
+    border-width: thin;
+    width: 100%;
+    font-size: larger;
+    background-color: transparent;
+}

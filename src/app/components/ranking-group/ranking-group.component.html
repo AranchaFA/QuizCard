@@ -1,0 +1,15 @@
+<ul>
+    <li type="none" *ngFor='let statistic of sortedStatistics'>
+        <!-- User ranking bar -->
+        <div class="progress col-6">
+            <span class="progress-bar" [class.bg-success]='statistic.userID==userID'
+                [class.bg-dark]='statistic.userID!=userID' role="progressbar" [ngStyle]="getWidthStyle(statistic)"
+                aria-valuenow="getWidthAria(statistic)" aria-valuemin="0" aria-valuemax="100">{{statistic.userID}}</span>
+        </div>
+        <!-- Another way using badges-->
+        <!--
+        <span class="badge col-11" [class.badge-success]='statistic.userID==userID'
+            [class.badge-dark]='statistic.userID!=userID' [ngStyle]="getWidthStyle(statistic)">&nbsp;</span>
+        -->
+    </li>
+</ul>

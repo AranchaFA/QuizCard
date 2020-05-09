@@ -1,0 +1,39 @@
+<!-- IF DECK HAS AT LEAST 4 CARDS -->
+<div *ngIf="cardsCollectionSize>=4">
+    <!-- <DIV ngIf...> <NG-TEMPLATE #elseBlock> div+div or ng-template+ng-template don't work -->
+    <!-- If cards array has been loaded correctly -->
+    <div *ngIf="cards.length==4; else loadingBlock">
+        <!-- Question -->
+        <h1 class="card-question" style="margin-top: 2%;margin-bottom: 2%;">
+            {{cards[correctIndex].question}}
+        </h1>
+        <!-- divider -->
+        <div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>
+        <!-- 4 options -->
+        <ul class="list-group">
+            <app-card-game4 *ngFor="let card of cards; let i=index" [card]="card" [index]="i"
+                [isCorrect]="i==correctIndex" [isAnswered]="isAnswered" (indexEmiter)="checkAnswer($event)">
+            </app-card-game4>
+            <!-- (indexEmiter)="checkAnswer(INDEX)" doesn't work! index is undefined when checkAnswer() is executed -->
+        </ul>
+        <!-- divider -->
+        <div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>
+        <!-- Ranking -->
+        <app-ranking-group></app-ranking-group>
+    </div>
+
+    <!-- If cards array hasn't been loaded correct -->
+    <ng-template #loadingBlock>
+        <div class="text-center">
+            <h4 style="margin: 3%;">Loading...</h4>
+        </div>
+    </ng-template>
+</div>
+
+<!-- IF DECK HAS LESS THAN 4 CARDS (it's imposible to play with) -->
+<div *ngIf="cardsCollectionSize!=undefined && cardsCollectionSize<4">
+    <div class="text-center">
+        <h4 style="margin: 3%;"> Game can't be loaded correctly,<br>deck must contain at least 4 cards!</h4>
+        <button type="button" class="btn btn-outline-success" (click)='navigatePlay()'>Back</button>
+    </div>
+</div>

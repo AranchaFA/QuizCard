@@ -1,0 +1,50 @@
+<!-- LIST OF USER'S DECKS TO CHOOSE -->
+<div *ngIf="deckToShowID==null">
+    <!-- Tittle -->
+    <div class="tittle">
+        <h3>My decks collection</h3>
+        <div class="dropdown-divider" style="width: 70%; margin-left: 15%;"></div>
+    </div>
+    <!-- Deck list -->
+    <app-check-deck-list [unselectItems]="selectedDecks.length==0" [itemsDisabled]="isEditing || isAdding"
+        (deckSelectionEmiter)="changeDeckSelection($event)" (showCardsEmiter)="showCards($event)"
+        (newDeckNameEmitter)="updateDeckName($event)">
+    </app-check-deck-list>
+</div>
+
+<!-- LIST OF CARDS IF ANY DECK IS OPENED -->
+<div *ngIf="deckToShowID!=null">
+    <!-- Tittle -->
+    <div>
+        <h3 class="text-success">{{(deckToShowObs | async)?.name}}</h3>
+        <h5>{{(deckToShowObs | async)?.native_language}} - {{(deckToShowObs | async)?.target_language}}</h5>
+        <button [disabled]="isInviting" type="button" class="btn btn-outline-success btn-sm col-5"
+            (click)="isInviting=true">Invite a friend!</button>
+    </div>
+    <!-- Divider -->
+    <div class="dropdown-divider" style="width: 70%; margin-left: 15%;"></div>
+    <!-- Card list -->
+    <app-check-card-list [unselectItems]="selectedCards.length==0" [itemsDisabled]="isEditing || isAdding || isInviting"
+        (cardSelectionEmiter)="changeCardSelection($event)" (newCardContentEmitter)="updateCardContent($event)">
+    </app-check-card-list>
+    <!-- 'Form' to invite new user -->
+    <app-invite-user-form *ngIf="isInviting" (emailEmitter)="inviteNewUser($event)"></app-invite-user-form>
+</div>
+
+<!-- 'FORM' TO ADD NEW DECK -->
+<div *ngIf="isAdding && deckToShowID==null">
+    <!-- Deck 'form' -->
+    <app-deck-form (newDeckEmitter)="addNewDeck($event)"></app-deck-form>
+</div>
+
+<!-- 'FORM' TO ADD NEW CARD -->
+<div *ngIf="isAdding && deckToShowID!=null">
+    <!-- Card 'form' -->
+    <app-card-form (newCardEmitter)="addNewCard($event)"></app-card-form>
+</div>
+
+
+<!-- KEYPAD -->
+<app-keypad [isEditable]="true" [isDisabled]="(selectedDecks.length==0 && selectedCards.length==0) || isInviting"
+    [addIsDisabled]="isInviting" (clickEmiter)="clickAction($event)">
+</app-keypad>

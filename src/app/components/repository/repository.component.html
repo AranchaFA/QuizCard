@@ -1,0 +1,59 @@
+<!-- Tittle -->
+<div class="tittle">
+    <h3>Repository</h3>
+    <!-- Showing cards if any deck is selected -->
+    <h6 *ngIf="selectedDeckID!=null && !isCopying">( {{(selectedDeckObs | async)?.name}} )</h6>
+    <!-- If user is choosing an own deck to copy selectedCards -->
+    <h6 *ngIf="isCopying">( Choose deck to copy in )</h6>
+    <!-- Divider -->
+    <div class="dropdown-divider" style="width: 70%; margin-left: 15%;"></div>
+</div>
+
+
+<!-- CHOOSE LANGUAGE SECTION -->
+<div *ngIf="selectedNativeLanguage==null && selectedTargetLanguage==null" class="item-align-center">
+    <!--  Language chooser input -->
+    <div class="middle">
+        <label for="native">Native language: </label>
+        <app-language-input id="native" [chosenValue]="'Spanish'" (valueEmitter)="inputNativeLanguage=$event">
+        </app-language-input>
+        <label for="target">Target language: </label>
+        <app-language-input id="target" [chosenValue]="'English'" (valueEmitter)="inputTargetLanguage=$event">
+        </app-language-input>
+    </div>
+    <!--  Search Button -->
+    <button type="button" class="btn btn-outline-success simpleBtn"
+        (click)="_router.navigate(['/'+userID,'repository',inputNativeLanguage,inputTargetLanguage])">Search</button>
+</div>
+
+
+<!-- LIST OF SEARCHED DECKS TO CHOOSE SECTION -->
+<div *ngIf="selectedNativeLanguage!=null && selectedTargetLanguage!=null && selectedDeckID==null"
+    class="item-align-cemter">
+    <!-- Deck list -->
+    <app-deck-list (deckEmiter)="navigateDeck($event)"></app-deck-list>
+</div>
+
+
+<!-- LIST OF CARDS OF SELECTED DECK SECTION -->
+<div *ngIf="selectedDeckID!=null && !isCopying" class="item-align-center">
+    <!-- Card list -->
+    <app-card-list (cardSelectionEmiter)="changeCardSelection($event)"></app-card-list>
+    <!-- Buttons to copy/cancel -->
+    <div class="footer">
+        <button type="button" class="btn btn-outline-success" [disabled]="selectedCards.length==0" (click)="isCopying=true">Copy</button>
+        <button type="button" class="btn btn-outline-success" (click)="cancel()">Cancel</button>
+    </div>
+</div>
+
+<!-- LIST OF USER DECKS TO CHOOSE TO WHICH ONE COPY SELECTED CARDS SECTION -->
+<div *ngIf="isCopying" class="item-align-center">
+    <!-- Deck list -->
+    <app-deck-list
+        (deckEmiter)="copySelectedCards($event); _router.navigate(['/'+userID,'repository',selectedNativeLanguage,selectedTargetLanguage])">
+    </app-deck-list>
+    <!-- Button to cancel -->
+    <div class="footer">
+        <button type="button" class="btn btn-outline-success" (click)="cancel()">Cancel</button>
+    </div>
+</div>

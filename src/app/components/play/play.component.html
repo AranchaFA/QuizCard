@@ -1,0 +1,48 @@
+<!-- GAME MODE CHOICE SECTION-->
+<ng-container *ngIf="gameType==null && deckID==null">
+    <!-- Carousel summary -->
+    <div>
+        <span>
+            <h1 class="text-success">{{options[optionShowed]}}</h1>
+            <h4 class="text-dark">{{optionLabels[optionShowed]}}</h4>
+        </span>
+        <span *ngFor="let option of options;let i=index" class="badge" (click)="optionShowed=i"
+            [class.badge-secondary]="i!=optionShowed" [class.badge-success]="i==optionShowed">&nbsp;</span>
+    </div>
+    <!-- divider -->
+    <div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>
+    <!-- Option buttons -->
+    <div>
+        <button *ngFor="let option of options;let i=index" type="button" class="btn btn-outline-success"
+            (click)="navigateButton(i)">{{option}}</button>
+    </div>
+</ng-container>
+
+<!-- LIST OF USER'S DECKS TO CHOOSE SECTION -->
+<ng-container *ngIf="gameType!=null && deckID==null">
+    <!-- Tittle -->
+    <div>
+        <h3>Choose a deck to play</h3>
+    </div>
+    <!-- divider -->
+    <div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>
+    <!-- Deck list -->
+    <app-deck-list (deckEmiter)="navigateDeck($event)"></app-deck-list>
+</ng-container>
+
+<!-- GAME COMPONENTS DEPENDS ON SELECTED OPTION -->
+<ng-container *ngIf="gameType!=null && deckID!=null">
+    <ng-container [ngSwitch]="gameType">
+        <!-- Quiz -->
+        <app-game4 *ngSwitchCase="'quiz'"></app-game4>
+        <!-- THIS 3 ELEMENTS ARE PENDING TO PROGRAM!! -->
+        <!-- Writing -->
+        <some-element *ngSwitchCase="'writing'">...</some-element>
+        <!-- Listening -->
+        <some-other-element *ngSwitchCase="'listening'">...</some-other-element>
+        <!-- Training -->
+        <some-element *ngSwitchCase="'training'">...</some-element>
+        <!-- Default case (it shouldn't be used!) -->
+        <h1 *ngSwitchDefault class="text-danger">Invalid game mode!</h1>
+    </ng-container>
+</ng-container>

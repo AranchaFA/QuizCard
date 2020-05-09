@@ -1,0 +1,12 @@
+li{
+    margin-left: 15%;
+    margin-right: 15%;
+    height: fit-content;
+}
+li:hover{
+    background-color: #e6f5e6;
+    font-size: larger;
+}
+.selected{
+    background-color: #e6f5e6;
+}

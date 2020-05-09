@@ -1,0 +1,4 @@
+<ul class="list-group list-group-flush">
+    <app-deck-list-item *ngFor="let deck of decksObs | async" [deck]="deck"
+        (deckEmiter)="emitDeck($event)"></app-deck-list-item>
+</ul>

@@ -1,0 +1,15 @@
+<li class="list-group-item d-flex justify-content-center align-items-center" [class.selected]="isSelected"
+    (click)="emitCardSelection()">
+    <span class="col-10">
+        <!-- Show content -->
+        <span *ngIf="!isDisabled || !isSelected">{{card.question}} - {{card.answer}}</span>
+        <!-- Edit content -->
+        <span *ngIf="isDisabled && isSelected">
+            <input [(ngModel)]="newContent[0]" type="text" value="{{card.question}}"> -
+            <input [(ngModel)]="newContent[1]" type="text" value="{{card.answer}}">
+        </span>
+    </span>
+    <!-- Card statistic badge -->
+    <span class="col-2"><span class="badge badge-success badge-pill">
+            {{userSuccessRatio}} % success</span></span>
+</li>

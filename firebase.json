@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "angular-quizcard",
+      "public": "dist/angular-quizcard",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

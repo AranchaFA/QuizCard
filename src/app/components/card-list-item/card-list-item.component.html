@@ -1,0 +1,5 @@
+<li class="list-group-item d-flex justify-content-center align-items-center" [class.selected]="isSelected"
+    (click)="emitCardSelection()">
+    <!-- Show content -->
+    <span class="col-10">{{card.question}} - {{card.answer}}</span>
+</li>

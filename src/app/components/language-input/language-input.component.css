@@ -1,0 +1,15 @@
+*{
+    border-left: transparent;
+    border-right: transparent;
+    border-top: transparent;
+    border-bottom: #5cb85c;
+    border-style: solid;
+    border-width: thin;
+    color: gray;
+    width: 100%;
+    font-size: larger;
+    background-color: transparent;
+}
+.error{
+    border-bottom: #d9534f;
+}

@@ -1,0 +1,6 @@
+<div>
+    <label for="email">Email:</label>
+    <input id="email" [(ngModel)]="newUserEmail" type="email" placeholder="YourFriend@email.com">
+    <button type="button" class="btn btn-outline-success btn-sm" (click)="emitEmail()">Invite</button>
+    <button type="button" class="btn btn-outline-success btn-sm" (click)="cancel()">Cancel</button>
+</div>

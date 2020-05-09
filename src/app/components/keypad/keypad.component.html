@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-center align-items-center">
+    <!-- Add button -->
+    <button *ngIf="add" [disabled]="!isDisabled || addIsDisabled" type="button" class="btn btn-outline-success btn-sm" (click)="emitClick('add')">Add</button>
+    <!-- Remove button -->
+    <button *ngIf="remove" [disabled]="isDisabled" type="button" class="btn btn-outline-success btn-sm"
+        (click)="emitClick('remove')">Remove</button>
+    <!-- Edit button -->
+    <button *ngIf="edit" [disabled]="isDisabled" type="button" class="btn btn-outline-success btn-sm"
+        (click)="emitClick('edit')">Edit</button>
+    <!-- Update button -->
+    <button *ngIf="update" [disabled]="isDisabled" type="button" class="btn btn-outline-success btn-sm"
+        (click)="emitClick('update')">Update</button>
+    <!-- Update button -->
+    <button *ngIf="cancel" type="button" class="btn btn-outline-success btn-sm"
+        (click)="emitClick('cancel')">Cancel</button>
+    <!-- Copy button -->
+    <button *ngIf="copy" [disabled]="isDisabled" type="button" class="btn btn-outline-success btn-sm"
+        (click)="emitClick('copy')">Copy</button>
+</div>

@@ -1,0 +1,17 @@
+<li class="list-group-item d-flex justify-content align-items-center" [class.selected]="isSelected">
+    <!-- Button to see cards of the deck -->
+    <span class="col-2"><button [disabled]="isDisabled" type="button" class="btn btn-outline-success btn-sm"
+            (click)="emitDeckShowCards()">Open</button></span>
+    <!-- Deck name and languages -->
+    <span class="col-8" (click)="emitDeckSelection()">
+        <span *ngIf="!isDisabled || !isSelected" class="text-success">{{deck.name}}</span>
+        <input *ngIf="isDisabled && isSelected" [(ngModel)]="newName" class="selected" type="text"
+            value="{{deck.name}}">
+        <br><span>{{deck.native_language}} - {{deck.target_language}}</span>
+    </span>
+    <!-- Deck size badge -->
+    <span class="col-2" (click)="emitDeckSelection()">
+        <span class="badge badge-success badge-pill">{{deck.size}} cards</span>
+        <span class="badge badge-success badge-pill">{{userSuccessRatio}} % success</span>
+    </span>
+</li>

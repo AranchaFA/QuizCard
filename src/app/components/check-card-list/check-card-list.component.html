@@ -1,0 +1,6 @@
+<ul class="list-group list-group-flush">
+    <app-check-card-list-item *ngFor="let card of cardsObs | async" [card]="card" [unselect]="unselectItems"
+        [isDisabled]="itemsDisabled" (cardSelectionEmiter)="emitCardSelection($event)"
+        (newCardContentEmitter)="emitNewCardContent($event)">
+    </app-check-card-list-item>
+</ul>

@@ -1,0 +1,4 @@
+<!-- RANKING OF ALL USER DECKS SECTION-->
+<ul>
+    <app-ranking-user-item *ngFor="let deck of userDecksObs | async" [deck]='deck' (deckEmitter)="emitDeck($event)"></app-ranking-user-item>
+</ul>

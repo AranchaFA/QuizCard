@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "quizcard-97135": {
+      "hosting": {
+        "angular-quizcard": [
+          "quizcard-97135"
+        ]
+      }
+    }
+  }
+}

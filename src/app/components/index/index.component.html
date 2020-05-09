@@ -1,0 +1,34 @@
+<!-- App tittle -->
+<div style="margin-top: 5%">
+    <h3>Ready to</h3>
+    <h1 class="display-1 text-success">QuizCard</h1>
+</div>
+
+<!-- divider -->
+<div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>
+
+<!-- LOG -->
+
+<!-- No logged user -->
+<div *ngIf="(userID==undefined || userID==null) && !registerNew">
+    <input #userID type="text" placeholder="User name"><br>
+    <input type="password" placeholder="Password">
+    <div><button type="button" class="btn btn-outline-success" (click)="navigateLog(userID.value)">LOG IN</button></div>
+    <div><a class="text-success" routerLink="/index/registerNew">Register</a> new account.</div>
+</div>
+
+<!-- User already logged -->
+<div *ngIf="userID!=undefined && userID!=null && !registerNew">
+    <div>Hello {{userID}} !</div>
+    <div><button type="button" class="btn btn-outline-success" (click)="navigateStart()">START</button></div>
+    <div>Log with <a class="text-success" routerLink="/index">different</a> account.</div>
+</div>
+
+<!-- Register new user -->
+<div *ngIf="registerNew">
+    <input type="text" placeholder="User name"><br>
+    <input type="password" placeholder="Password"><br>
+    <input type="password" placeholder="Repeat password">
+    <div><button type="button" class="btn btn-outline-success">REGISTER</button></div>
+    <div>Log with <a class="text-success" routerLink="/index">existing</a> account.</div>
+</div>

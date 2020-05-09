@@ -1,0 +1,12 @@
+div{
+    width: 100%;
+    position: fixed;
+    bottom: 0%;
+    background-color: white;
+    padding: 2%;
+    border-color: transparent;
+    height: 11%;
+}
+button{
+    margin: 0.2%;
+}

@@ -1,0 +1,4 @@
+<ul class="list-group list-group-flush">
+    <app-card-list-item *ngFor="let card of cardsObs | async" [card]="card" (cardSelectionEmiter)="emitCardSelection($event)">
+    </app-card-list-item>
+</ul>
