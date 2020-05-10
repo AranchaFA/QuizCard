@@ -1,0 +1,24 @@
+<!-- Navbar -->
+<nav class="navbar text-white navbar-inverse bg-success">
+    <!-- Navbar brand -->
+    <div class="tittle" (click)="navigate('start')">QuizCard</div>
+    <!-- Dropdown button -->
+    <li type="none">
+        <a class="dropdown-toggle text-white" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" (click)="changeShow()">{{userID}}</a>
+    </li>
+</nav>
+
+<!-- Nav options -->
+<div class="d-flex justify-content-center " *ngIf="show">
+    <span class="justify-content-around">
+        <a class="active text-success bg-white" (click)="navigate('start')" routerLinkActive="active">Home</a> |
+        <a class="active text-success bg-white" (click)="navigate('play')" routerLinkActive="active">Play</a> |
+        <a class="active text-success bg-white" (click)="navigate('mydecks')" routerLinkActive="active">My decks</a> |
+        <a class="active text-success bg-white" (click)="navigate('statistics')"
+            routerLinkActive="active">Statistics</a> |
+        <a class="active text-success bg-white" (click)="navigate('repository')"
+            routerLinkActive="active">Repository</a> |
+        <a class="active text-success bg-white" (click)="navigate('index')" routerLinkActive="active">Sign off</a>
+    </span>
+</div>

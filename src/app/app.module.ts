@@ -40,6 +40,7 @@ import { CardListComponent } from './components/card-list/card-list.component';
 import { CardListItemComponent } from './components/card-list-item/card-list-item.component';
 import { RankingUserComponent } from './components/ranking-user/ranking-user.component';
 import { RankingUserItemComponent } from './components/ranking-user-item/ranking-user-item.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { RankingUserItemComponent } from './components/ranking-user-item/ranking
     CardListItemComponent,
     RankingUserComponent,
     RankingUserItemComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
