@@ -20,6 +20,8 @@ export class Game4Component implements OnInit {
   success: boolean;
   cardsCollectionSize: number;
   cards: Card[] = new Array<Card>(); // 4 random cards from decksService's deck
+  @Input() languagesOrder: boolean; // To invert languages order (question-answer)
+  previousLanguagesOrder: boolean; // To control when languagesOrder has changed, to execute newPlay()
 
   constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private _decksService: FirestoreDecksService) {
     this.userID = _activatedRoute.snapshot.paramMap.get('userID');
@@ -31,7 +33,12 @@ export class Game4Component implements OnInit {
     this.cardsCollectionObs.subscribe(cards => { this.cardsCollectionSize = cards.length; this.newPlay() });
   }
 
+  ngOnChanges(): void {
+    if (this.previousLanguagesOrder != this.languagesOrder) this.newPlay(); // Change cards if languagesOrder is changed
+  }
+
   newPlay() {
+    this.previousLanguagesOrder = this.languagesOrder;
     this.cards = new Array<Card>();
     // Restore control parameters
     this.isAnswered = false;

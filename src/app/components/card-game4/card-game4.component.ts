@@ -13,6 +13,7 @@ export class CardGame4Component implements OnInit, OnChanges {
   @Input() card: Card;
   @Input() isAnswered: boolean;
   @Input() isCorrect: boolean;
+  @Input() languagesOrder: boolean;
   @Output() indexEmiter = new EventEmitter<number>();
   isSelected: boolean; // To assign CSS class .card-selected. 
 

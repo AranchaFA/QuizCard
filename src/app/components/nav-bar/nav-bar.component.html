@@ -1,12 +1,17 @@
 <!-- Navbar -->
 <nav class="navbar text-white navbar-inverse bg-success">
     <!-- Navbar brand -->
-    <div class="tittle" (click)="navigate('start')">QuizCard</div>
+    <button type="button" class="btn btn-success btn-sm" (click)="navigate('start')">&lt; QuizCard</button>
+    <!-- Switch languages selection (only while playing) -->
+    <button *ngIf="gameType!=null && deckID!=null" type="button" class="btn btn-success btn-sm"
+        (click)="emitInvertLanguages()">
+        <span *ngIf="languagesOrder">{{(deckObs | async)?.native_language}} &#8644;
+            {{(deckObs | async)?.target_language}}</span>
+        <span *ngIf="!languagesOrder">{{(deckObs | async)?.target_language}} &#8644;
+            {{(deckObs | async)?.native_language}}</span>
+    </button>
     <!-- Dropdown button -->
-    <li type="none">
-        <a class="dropdown-toggle text-white" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false" (click)="changeShow()">{{userID}}</a>
-    </li>
+    <button type="button" class="btn btn-success btn-sm dropdown-toggle" (click)="changeShow()">{{userID}}</button>
 </nav>
 
 <!-- Nav options -->
@@ -19,6 +24,6 @@
             routerLinkActive="active">Statistics</a> |
         <a class="active text-success bg-white" (click)="navigate('repository')"
             routerLinkActive="active">Repository</a> |
-        <a class="active text-success bg-white" (click)="navigate('index')" routerLinkActive="active">Sign off</a>
+        <a class="active text-dark bg-white" (click)="navigate('index')" routerLinkActive="active">Sign off</a>
     </span>
 </div>

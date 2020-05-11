@@ -1,5 +1,5 @@
 <!-- NavBar -->
-<app-nav-bar></app-nav-bar>
+<app-nav-bar (invertLanguagesEmitter)="languagesOrder=!languagesOrder"></app-nav-bar>
 <!-- GAME MODE CHOICE SECTION-->
 <ng-container *ngIf="gameType==null && deckID==null">
     <!-- Carousel summary -->
@@ -11,7 +11,7 @@
         <span *ngFor="let option of options;let i=index" class="badge" (click)="optionShowed=i"
             [class.badge-secondary]="i!=optionShowed" [class.badge-success]="i==optionShowed">&nbsp;</span>
     </div>
-    <!-- divider -->
+    <!-- Divider -->
     <div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>
     <!-- Option buttons -->
     <div>
@@ -36,7 +36,7 @@
 <ng-container *ngIf="gameType!=null && deckID!=null">
     <ng-container [ngSwitch]="gameType">
         <!-- Quiz -->
-        <app-game4 *ngSwitchCase="'quiz'"></app-game4>
+        <app-game4 *ngSwitchCase="'quiz'" [languagesOrder]="languagesOrder"></app-game4>
         <!-- THIS 3 ELEMENTS ARE PENDING TO PROGRAM!! -->
         <!-- Writing -->
         <some-element *ngSwitchCase="'writing'">...</some-element>

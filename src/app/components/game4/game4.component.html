@@ -5,14 +5,15 @@
     <div *ngIf="cards.length==4; else loadingBlock">
         <!-- Question -->
         <h1 class="card-question" style="margin-top: 2%;margin-bottom: 2%;">
-            {{cards[correctIndex].question}}
+            <span *ngIf="languagesOrder">{{cards[correctIndex].question}}</span>
+            <span *ngIf="!languagesOrder">{{cards[correctIndex].answer}}</span>
         </h1>
         <!-- divider -->
         <div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>
         <!-- 4 options -->
         <ul class="list-group">
             <app-card-game4 *ngFor="let card of cards; let i=index" [card]="card" [index]="i"
-                [isCorrect]="i==correctIndex" [isAnswered]="isAnswered" (indexEmiter)="checkAnswer($event)">
+                [isCorrect]="i==correctIndex" [isAnswered]="isAnswered" [languagesOrder]="languagesOrder" (indexEmiter)="checkAnswer($event)">
             </app-card-game4>
             <!-- (indexEmiter)="checkAnswer(INDEX)" doesn't work! index is undefined when checkAnswer() is executed -->
         </ul>

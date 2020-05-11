@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { interval } from 'rxjs';
 import { Deck } from 'src/app/pojos/deck/deck';
@@ -14,6 +14,7 @@ export class PlayComponent implements OnInit {
   gameType: string;
   deckID: string;
   userID: string;
+  languagesOrder: boolean; // To invert languages (answer-question)
   // Carousel options
   options: string[] = ['QUIZ', 'WRITING', 'LISTENING', 'TRAINING'];
   optionLabels: string[] = ['Choose between 4 posible responses.',
