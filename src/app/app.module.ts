@@ -41,6 +41,7 @@ import { CardListItemComponent } from './components/card-list-item/card-list-ite
 import { RankingUserComponent } from './components/ranking-user/ranking-user.component';
 import { RankingUserItemComponent } from './components/ranking-user-item/ranking-user-item.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { GameWritingComponent } from './components/game-writing/game-writing.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     RankingUserComponent,
     RankingUserItemComponent,
     NavBarComponent,
+    GameWritingComponent,
   ],
   imports: [
     BrowserModule,

@@ -65,7 +65,7 @@ export class Game4Component implements OnInit {
     // Update Firestore DB info
     let deck = new Deck();
     deck.id = this.deckID;
-    this._decksService.addAnswered(deck, this.cards[this.correctIndex], this.userID, this.success);
+    this._decksService.addAnswered(this.deckID, this.cards[this.correctIndex], this.userID, this.success);
     // New play after timeout
     timer(1000).subscribe(() => this.newPlay());
 

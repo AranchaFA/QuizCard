@@ -1,0 +1,21 @@
+*{
+    font-family: 'Neucha', cursive;
+}
+
+.question{
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Neucha', cursive;
+}
+
+div{
+    align-content: center;
+    margin: 5%;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+input{
+    text-align: center;
+}

@@ -1,0 +1,28 @@
+<!-- Question -->
+<h1 class="question" style="margin-top: 2%;margin-bottom: 2%;">
+    <span *ngIf="languagesOrder">{{(selectedCardObs | async)?.question}}</span>
+    <span *ngIf="!languagesOrder">{{(selectedCardObs | async)?.answer}}</span>
+</h1>
+<!-- Divider -->
+<div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>
+<!-- Button ok/next -->
+<div>
+    <button *ngIf="!isAnswered" type="button" class="btn btn-outline-success btn-sm col-6"
+        (click)='checkAnswer()'>Check</button>
+    <button *ngIf="isAnswered" type="button" class="btn btn-outline-success btn-sm col-6"
+        (click)='newPlay()'>Next</button>
+</div>
+<!-- Answer input -->
+<div>
+    <input class="col-10" [(ngModel)]="userAnswer" [ngClass]="setMyClasses()" placeholder="Your answer" />
+</div>
+<!-- Correct answer -->
+<div *ngIf="isAnswered">
+    <span *ngIf="languagesOrder">{{(selectedCardObs | async)?.answer}}</span>
+    <span *ngIf="!languagesOrder">{{(selectedCardObs | async)?.question}}</span>
+</div>
+
+<!-- Divider -->
+<div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>
+<!-- Ranking -->
+<app-ranking-group></app-ranking-group>

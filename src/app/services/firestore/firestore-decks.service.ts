@@ -24,6 +24,7 @@ export class FirestoreDecksService {
   private cardsCollectionObs: Observable<Card[]>;
   private statisticsCollectionObs: Observable<Statistic[]>;
   private deckObs: Observable<Deck>;
+  private cardObs: Observable<Card>;
 
 
   /////////////
@@ -54,6 +55,11 @@ export class FirestoreDecksService {
   getCardCollectionObs(deckID: string): Observable<Card[]> {
     this.cardsCollectionObs = this.decksCollection.doc<Deck>(deckID).collection<Card>('cards').valueChanges();
     return this.cardsCollectionObs;
+  }
+
+  getCardObs(deckID: string, cardID: string): Observable<Card> {
+    this.cardObs = this.decksCollection.doc<Deck>(deckID).collection<Card>('cards').doc<Card>(cardID).valueChanges();
+    return this.cardObs;
   }
 
   getStatisticCollectionObs(deckID: string, cardID?: string): Observable<Statistic[]> {
@@ -277,12 +283,12 @@ export class FirestoreDecksService {
    * @param userID User's ID who has answered the question
    * @param success True if user chose the right answer, false in any other case
    */
-  addAnswered(deck: Deck, card: Card, userID: string, success: boolean) {
+  addAnswered(deckID: string, card: Card, userID: string, success: boolean) {
     // Update deck's statistics
-    this.incrementStatistics(this.decksCollection.doc<Deck>(deck.id).collection<Statistic>('statistics')
+    this.incrementStatistics(this.decksCollection.doc<Deck>(deckID).collection<Statistic>('statistics')
       .doc<Statistic>(userID), success);
     // Update card's statistics
-    this.incrementStatistics(this.decksCollection.doc<Deck>(deck.id).collection<Card>('cards')
+    this.incrementStatistics(this.decksCollection.doc<Deck>(deckID).collection<Card>('cards')
       .doc<Card>(card.id).collection<Statistic>('statistics').doc<Statistic>(userID), success);
   }
 
