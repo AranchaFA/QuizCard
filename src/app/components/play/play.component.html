@@ -39,11 +39,11 @@
         <app-game4 *ngSwitchCase="'quiz'" [languagesOrder]="languagesOrder"></app-game4>
         <!-- THIS 3 ELEMENTS ARE PENDING TO PROGRAM!! -->
         <!-- Writing -->
-        <app-game-writing *ngSwitchCase="'writing'" [languagesOrder]="languagesOrder">...</app-game-writing>
+        <app-game-writing *ngSwitchCase="'writing'" [languagesOrder]="languagesOrder"></app-game-writing>
         <!-- Listening -->
         <some-other-element *ngSwitchCase="'listening'">...</some-other-element>
         <!-- Training -->
-        <some-element *ngSwitchCase="'training'">...</some-element>
+        <app-game-training *ngSwitchCase="'training'" [languagesOrder]="languagesOrder"></app-game-training>
         <!-- Default case (it shouldn't be used!) -->
         <h1 *ngSwitchDefault class="text-danger">Invalid game mode!</h1>
     </ng-container>
