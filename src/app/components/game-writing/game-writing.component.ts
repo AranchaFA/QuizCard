@@ -57,7 +57,6 @@ export class GameWritingComponent implements OnInit {
       this.selectedCardObs = this._decksService.getCardObs(this.deckID, cards[randomPosition].id);
       this.selectedCardObs.subscribe(card => this.selectedCard = card);
     });
-
   }
 
   setMyClasses() {

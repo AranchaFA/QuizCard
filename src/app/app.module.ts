@@ -43,6 +43,7 @@ import { RankingUserItemComponent } from './components/ranking-user-item/ranking
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { GameWritingComponent } from './components/game-writing/game-writing.component';
 import { GameTrainingComponent } from './components/game-training/game-training.component';
+import { GameListeningComponent } from './components/game-listening/game-listening.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { GameTrainingComponent } from './components/game-training/game-training.
     NavBarComponent,
     GameWritingComponent,
     GameTrainingComponent,
+    GameListeningComponent,
   ],
   imports: [
     BrowserModule,

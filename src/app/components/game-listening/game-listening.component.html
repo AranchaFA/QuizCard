@@ -1,0 +1,56 @@
+<!-- If browser has available the target language -->
+<div *ngIf="voice!=null;else nullVoiceBlock">
+    <!-- Tittle -->
+    <h1 class="question" style="margin-top: 2%;margin-bottom: 2%;">
+        Listen to...
+    </h1>
+    <!--
+    <div>
+        <button type="button" class="btn btn-outline-success btn-sm" (click)='speak()'>LISTEN</button>
+        <label for="rate">Speed</label><input type="range" min="0.5" max="2" value="1" step="0.1" id="rate">
+    </div>
+    -->
+    <!-- Divider -->
+    <div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>
+    <!-- Buttons to listen question -->
+    <span class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-success btn-sm" (click)='speak(0.7)'>Slow</button>
+        <button type="button" class="btn btn-outline-success btn-sm" (click)='speak(1)'>Medium</button>
+        <button type="button" class="btn btn-outline-success btn-sm" (click)='speak(1.2)'>Fast</button>
+    </span>
+    <!-- Button ok/next -->
+    <div>
+        <button *ngIf="!isAnswered" type="button" class="btn btn-outline-success btn-sm col-6"
+            (click)='checkAnswer()'>Check</button>
+        <button *ngIf="isAnswered" type="button" class="btn btn-outline-success btn-sm col-6"
+            (click)='newPlay()'>Next</button>
+    </div>
+    <!-- Answer input -->
+    <div>
+        <input class="col-10" [(ngModel)]="userAnswer" [ngClass]="setMyClasses()" placeholder="Your answer" />
+    </div>
+    <!-- Correct answer -->
+    <div *ngIf="isAnswered">
+        <span>{{(selectedCardObs | async)?.answer}}</span>
+    </div>
+
+    <!-- Divider -->
+    <div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>
+    <!-- Ranking -->
+    <app-ranking-group></app-ranking-group>
+</div>
+
+<!-- If browser hasn't available the target language -->
+<ng-template #nullVoiceBlock>
+    <div>
+    <!-- Tittle -->
+    <h3 style="margin-top: 2%;margin-bottom: 2%;">
+        Sorry, your browser hasn't available {{(selectedDeckObs | async)?.target_language}} language !
+    </h3>
+    <!-- Button to listen question -->
+
+    <button type="button" class="btn btn-outline-success btn-sm" (click)='navigateBack()'>Back</button>
+    </div>
+    <!-- Divider -->
+    <div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>
+</ng-template>

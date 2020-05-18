@@ -3,7 +3,7 @@
     <!-- Navbar brand -->
     <button type="button" class="btn btn-success btn-sm" (click)="navigate('start')">&lt; QuizCard</button>
     <!-- Switch languages selection (only while playing) -->
-    <button *ngIf="gameType!=null && deckID!=null" type="button" class="btn btn-success btn-sm"
+    <button *ngIf="gameType!=null && gameType!='listening' && deckID!=null " type="button" class="btn btn-success btn-sm"
         (click)="emitInvertLanguages()">
         <span *ngIf="languagesOrder">{{(deckObs | async)?.native_language}} &#8644;
             {{(deckObs | async)?.target_language}}</span>

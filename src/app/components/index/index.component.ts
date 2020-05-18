@@ -1,8 +1,6 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirestoreDecksService } from 'src/app/services/firestore/firestore-decks.service';
-import { Observable } from 'rxjs';
-import { Deck } from 'src/app/pojos/deck/deck';
 
 @Component({
   selector: 'app-index',
