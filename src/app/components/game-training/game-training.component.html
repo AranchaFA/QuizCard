@@ -3,6 +3,12 @@
     <span *ngIf="languagesOrder">{{(selectedCardObs | async)?.question}}</span>
     <span *ngIf="!languagesOrder">{{(selectedCardObs | async)?.answer}}</span>
 </h1>
+<!-- Buttons to listen question (if browser has available the target language) -->
+<span *ngIf="voice!=null" class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-outline-success btn-sm" (click)='speak(0.7)'>Slow</button>
+    <button type="button" class="btn btn-outline-success btn-sm" (click)='speak(1)'>Medium</button>
+    <button type="button" class="btn btn-outline-success btn-sm" (click)='speak(1.2)'>Fast</button>
+</span>
 <!-- Divider -->
 <div class="dropdown-divider" style="width: 70%; margin-left: 15%;"></div>
 <!-- Button ok/next -->
@@ -17,6 +23,8 @@
     <span *ngIf="languagesOrder">{{(selectedCardObs | async)?.answer}}</span>
     <span *ngIf="!languagesOrder">{{(selectedCardObs | async)?.question}}</span>
 </div>
+<!-- Blank space while still isn't answered -->
+<div *ngIf="!isAnswered">&nbsp;</div>
 
 <!-- Divider -->
 <div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>

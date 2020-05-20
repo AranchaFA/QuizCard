@@ -4,12 +4,6 @@
     <h1 class="question" style="margin-top: 2%;margin-bottom: 2%;">
         Listen to...
     </h1>
-    <!--
-    <div>
-        <button type="button" class="btn btn-outline-success btn-sm" (click)='speak()'>LISTEN</button>
-        <label for="rate">Speed</label><input type="range" min="0.5" max="2" value="1" step="0.1" id="rate">
-    </div>
-    -->
     <!-- Divider -->
     <div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>
     <!-- Buttons to listen question -->
@@ -33,6 +27,8 @@
     <div *ngIf="isAnswered">
         <span>{{(selectedCardObs | async)?.answer}}</span>
     </div>
+    <!-- Blank space while still isn't answered -->
+    <div *ngIf="!isAnswered">&nbsp;</div>
 
     <!-- Divider -->
     <div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>
@@ -43,13 +39,13 @@
 <!-- If browser hasn't available the target language -->
 <ng-template #nullVoiceBlock>
     <div>
-    <!-- Tittle -->
-    <h3 style="margin-top: 2%;margin-bottom: 2%;">
-        Sorry, your browser hasn't available {{(selectedDeckObs | async)?.target_language}} language !
-    </h3>
-    <!-- Button to listen question -->
+        <!-- Tittle -->
+        <h3 style="margin-top: 2%;margin-bottom: 2%;">
+            Sorry, your browser hasn't available {{(selectedDeckObs | async)?.target_language}} language !
+        </h3>
+        <!-- Button to listen question -->
 
-    <button type="button" class="btn btn-outline-success btn-sm" (click)='navigateBack()'>Back</button>
+        <button type="button" class="btn btn-outline-success btn-sm" (click)='navigateBack()'>Back</button>
     </div>
     <!-- Divider -->
     <div class="dropdown-divider" style="width: 70%;margin-left: 15%;"></div>

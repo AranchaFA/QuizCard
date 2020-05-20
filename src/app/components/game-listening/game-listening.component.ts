@@ -61,10 +61,12 @@ export class GameListeningComponent implements OnInit {
   }
 
   speak(rate: number): void {
-    let utterance = new SpeechSynthesisUtterance(this.selectedCard.question);
+    if (!this.speaker.speaking) { // Speaker isn't speaking yet
+      let utterance = new SpeechSynthesisUtterance(this.selectedCard.question);
     utterance.voice = this.voice;
     utterance.rate = rate;
     this.speaker.speak(utterance);
+    }
   }
 
   getVoice(language: string): any {
