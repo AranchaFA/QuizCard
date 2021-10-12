@@ -1,3 +1,6 @@
+The academic-documentation folder contains the proyect memory and a PowerPoint for its public defense, as well as some videos showing: the app working, explanations about the code, the data model and the DB implementation. Among other things
+
+
 # AngularQuizcard
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
